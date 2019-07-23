@@ -17,6 +17,7 @@ import javax.crypto.Cipher;
 
 import org.apache.commons.codec.binary.Base64;
 
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.parser.Feature;
@@ -151,12 +152,10 @@ public class MD5WithRSAUtil1 {
     }
 	
 	//上传文本
-	public static String type_1() throws Exception {
-		String privateKey = "MIIBVgIBADANBgkqhkiG9w0BAQEFAASCAUAwggE8AgEAAkEAkqWDTe+jStTb/I23EmKVDMjyes0D4NQ3e6oBbhAoBcVkwylssj5Nil4q2YeE57sj40kH1QzENSPcx/e6SkOIRwIDAQABAkAl7OIxZLlRYA1ommnvOkmb3dhABAdtvNSAie4Gvezr2MJQfS02pR0eJyoeK5qZ95yFVe7cQdCHR3ctq6nq4hnxAiEA+9Z4C6T2joJT0GI9EWU6EDTfuXHfIQQKs4XGZI+Tf28CIQCVEfpC1MktWRXAvwJsS+ZIRlJnxkvoziqRvzZHuC4YqQIhAMwanwJ4+Sa4s6sQ44OEshFOeP/4LSm5995VjlwUDSvbAiEAiPb+oR8PRMpAUVtu54AJMsjh+BVbM6kRtd4hCl5whBkCIQCyqD+pM/caore6N73YtRHF8P4d9MW5U1QLO9juTAy2Dw==";
-		String pubKey = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJKlg03vo0rU2/yNtxJilQzI8nrNA+DUN3uqAW4QKAXFZMMpbLI+TYpeKtmHhOe7I+NJB9UMxDUj3Mf3ukpDiEcCAwEAAQ==";		
-		String content = "{\r\n" + 
-				"        \"content\": \"超声测量:甲状腺右叶:4.1×1.6×1.2cm甲状腺左叶:4.4×1.4×1.3cm峡部:0.3cm超声所见:甲状腺大小正常,形态规整,内回声不均匀。甲状腺右叶探及不均匀回声,大小0.3×0.2×0.3cm,界欠清晰,形态欠规整,内回声不均匀,CDFI:其内及周边未探及血流信号。CDFI:其内及周边未探及血流信号超声提示:甲状腺右叶不均匀回声(实质性占位性病变不除外)请随诊甲状腺右叶小结节双侧颈部多发不均匀回声\"\r\n" + 
-				"}";
+	public static String type_1(String data) throws Exception {
+		String privateKey = "MIIBVAIBADANBgkqhkiG9w0BAQEFAASCAT4wggE6AgEAAkEAtd6mb1SR+VvacGr5sbEz3m5iWcqmNeJipJaGnJ5bGDErjglqLkVPXIRCbvMRUNEe/IlJdmLRT0sBzYJRDYQbcwIDAQABAkAPdFEOStBwsRZ50Q1QxS8UKqse2DKRh6A8PjJIIsi44GgYMvqXvlN+Vy5q5nYhkvB3Ndfhtn17f5qMalmRUlYRAiEA1/jXOGF4IWMF2okLEX6uRdN7J0o2iF8pcJGVr+l1gKkCIQDXk8SFzDUmZ7Ihvvns+NatHYx/U14Dnh5wdR04HgoguwIgTOAmu8r2F+xHiSJ+7htJrVE55SJlhuVYutkXjyZqzQECIQCYTWhxUqVWPbqGxuLRfbhFU/P33JE2IxbEQqljBS4IkwIgJswLDvDUHtjfuf0hLw61HIRN3ZflB7R/gj+Hw5qUspQ=";
+		String pubKey = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBALXepm9Ukflb2nBq+bGxM95uYlnKpjXiYqSWhpyeWxgxK44Jai5FT1yEQm7zEVDRHvyJSXZi0U9LAc2CUQ2EG3MCAwEAAQ==";		
+		String content = data;
 		System.out.println(content);
 		content = JSON.toJSONString(JSON.parseObject(content,JSONObject.class), SerializerFeature.MapSortField);
 		String sign = createMD5Sign(content,privateKey);
@@ -197,11 +196,19 @@ public class MD5WithRSAUtil1 {
 		return sign;
 	}
 	
+	
+	
 	public static void main(String[] args) throws Exception {
-//		String sign = MD5WithRSAUtil1.type_2();
-//		System.out.println(sign);
-		String base = MD5WithRSAUtil1.base64("D:/images/TR6.jpg");
-		System.out.println(base);
+		String data = " {\r\n" + 
+				"        \"bzId\":\"dzaaa\"\r\n" + 
+				"    }";
+		String sign = MD5WithRSAUtil1.type_1(data);
+		System.out.println(sign);
+//		String base = MD5WithRSAUtil1.base64("D:/images/TR6.jpg");
+//		System.out.println(base);
+		
+		
+		
 	}
 	
 }

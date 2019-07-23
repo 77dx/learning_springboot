@@ -39,6 +39,8 @@ public class MD5WithRSAUtil2_result {
         return Base64.encodeBase64String(signs);
     }
 
+    
+    
     /**
      * 
      * @Title: verifyMD5Sign
@@ -143,13 +145,24 @@ public class MD5WithRSAUtil2_result {
         return keyPair;
     }
 	
-	
-	public static String select(String id) throws Exception {
+	public static String select() throws Exception {
 		String privateKey = "MIIBVgIBADANBgkqhkiG9w0BAQEFAASCAUAwggE8AgEAAkEAkqWDTe+jStTb/I23EmKVDMjyes0D4NQ3e6oBbhAoBcVkwylssj5Nil4q2YeE57sj40kH1QzENSPcx/e6SkOIRwIDAQABAkAl7OIxZLlRYA1ommnvOkmb3dhABAdtvNSAie4Gvezr2MJQfS02pR0eJyoeK5qZ95yFVe7cQdCHR3ctq6nq4hnxAiEA+9Z4C6T2joJT0GI9EWU6EDTfuXHfIQQKs4XGZI+Tf28CIQCVEfpC1MktWRXAvwJsS+ZIRlJnxkvoziqRvzZHuC4YqQIhAMwanwJ4+Sa4s6sQ44OEshFOeP/4LSm5995VjlwUDSvbAiEAiPb+oR8PRMpAUVtu54AJMsjh+BVbM6kRtd4hCl5whBkCIQCyqD+pM/caore6N73YtRHF8P4d9MW5U1QLO9juTAy2Dw==";
 		String pubKey = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJKlg03vo0rU2/yNtxJilQzI8nrNA+DUN3uqAW4QKAXFZMMpbLI+TYpeKtmHhOe7I+NJB9UMxDUj3Mf3ukpDiEcCAwEAAQ==";		
 		String content = "{\r\n" + 
-				"        \"serialNumber\":\""+id+"\" \r\n" + 
-				"}";
+				"		\"bzId\": \"xxx\",\r\n" + 
+				"		\"guId\": \"guid005\",\r\n" + 
+				"		\"gender\":1,\r\n" + 
+				"		\"channelCode\": \"channelcode004\",\r\n" + 
+				"		\"channelName\": \"再保\",\r\n" + 
+				"		\"benefitCode\": \"benefitcode004\",\r\n" + 
+				"		\"productName\": \"重疾险\",\r\n" + 
+				"		\"cpCode\": \"cp003\",\r\n" + 
+				"		\"cpName\": \"亚太再保\",\r\n" + 
+				"		\"planCode\": \"plan003\",\r\n" + 
+				"		\"successUrl\": \"http://flins.com.cn\",\r\n" + 
+				"		\"failUrl\": \"http://www.baidu.com\",\r\n" + 
+				"		\"notifyUrl\": \"http://www.taobao.com\"\r\n" + 
+				"	}";
 		System.out.println(content);
 		content = JSON.toJSONString(JSON.parseObject(content, JSONObject.class), SerializerFeature.MapSortField);
 		
@@ -159,9 +172,10 @@ public class MD5WithRSAUtil2_result {
 		return sign;
 	}
 	
+	
 	public static void main(String[] args) throws Exception {
 		String id = "PFC20190617000024";
-		MD5WithRSAUtil2_result.select(id);
+		MD5WithRSAUtil2_result.select();
 	}
 
 }

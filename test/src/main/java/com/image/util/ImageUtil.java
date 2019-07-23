@@ -39,6 +39,8 @@ public class ImageUtil {
 	}
 	
 	
+	
+	
 	//把目标路径的文件名称写进文件里
 	public static void image_name(String imageName,String imageUrl) {
 		try {
