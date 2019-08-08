@@ -146,22 +146,21 @@ public class MD5WithRSAUtil2_result {
     }
 	
 	public static String select() throws Exception {
-		String privateKey = "MIIBVgIBADANBgkqhkiG9w0BAQEFAASCAUAwggE8AgEAAkEAkqWDTe+jStTb/I23EmKVDMjyes0D4NQ3e6oBbhAoBcVkwylssj5Nil4q2YeE57sj40kH1QzENSPcx/e6SkOIRwIDAQABAkAl7OIxZLlRYA1ommnvOkmb3dhABAdtvNSAie4Gvezr2MJQfS02pR0eJyoeK5qZ95yFVe7cQdCHR3ctq6nq4hnxAiEA+9Z4C6T2joJT0GI9EWU6EDTfuXHfIQQKs4XGZI+Tf28CIQCVEfpC1MktWRXAvwJsS+ZIRlJnxkvoziqRvzZHuC4YqQIhAMwanwJ4+Sa4s6sQ44OEshFOeP/4LSm5995VjlwUDSvbAiEAiPb+oR8PRMpAUVtu54AJMsjh+BVbM6kRtd4hCl5whBkCIQCyqD+pM/caore6N73YtRHF8P4d9MW5U1QLO9juTAy2Dw==";
-		String pubKey = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJKlg03vo0rU2/yNtxJilQzI8nrNA+DUN3uqAW4QKAXFZMMpbLI+TYpeKtmHhOe7I+NJB9UMxDUj3Mf3ukpDiEcCAwEAAQ==";		
+		String privateKey = "MIIBVAIBADANBgkqhkiG9w0BAQEFAASCAT4wggE6AgEAAkEAmQREzXAYmWcIjPyeNCV6SmVLX8XcrZWonh8i5XdSiqs/Pcj4Hxrh6DXbbOJzTVAkUXWbaWKcizydm7PAsNwauQIDAQABAkA9Cy/riTm3ERyfKjRu9ziXL1vnhEbqVRckpaVFR9n9CYA21m++U4I8MyGeNv0NV6GEeATmnsx4xhdnXzD6pfZRAiEAzUCuMD9vYtpXWQHNFDJkgMJKGB8r307CkgYvZ0azlg0CIQC+2Vlr3+mHsXP1qVKJZEChgwhyGXbzhlayLsS5qsr4XQIgVNbEaTr/PnwDmM3Ox+dgdXxZhgj0aHQ0pokZ9PVba80CICKf6DtMCmBV74XYTGMkzxz+Wt/ogs43xy7YkVRmCiD5AiEAxsurHTXqhpBy/2V7qUz6RKDzVM+1Qeu/KTfb3XX+fuw=";
+		String pubKey = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJkERM1wGJlnCIz8njQlekplS1/F3K2VqJ4fIuV3UoqrPz3I+B8a4eg122zic01QJFF1m2linIs8nZuzwLDcGrkCAwEAAQ==";		
 		String content = "{\r\n" + 
-				"		\"bzId\": \"xxx\",\r\n" + 
-				"		\"guId\": \"guid005\",\r\n" + 
+				"		\"bzId\": \"bzId001\",\r\n" + 
+				"		\"guId\": \"gu001\",\r\n" + 
 				"		\"gender\":1,\r\n" + 
-				"		\"channelCode\": \"channelcode004\",\r\n" + 
-				"		\"channelName\": \"再保\",\r\n" + 
-				"		\"benefitCode\": \"benefitcode004\",\r\n" + 
-				"		\"productName\": \"重疾险\",\r\n" + 
-				"		\"cpCode\": \"cp003\",\r\n" + 
-				"		\"cpName\": \"亚太再保\",\r\n" + 
-				"		\"planCode\": \"plan003\",\r\n" + 
-				"		\"successUrl\": \"http://flins.com.cn\",\r\n" + 
-				"		\"failUrl\": \"http://www.baidu.com\",\r\n" + 
-				"		\"notifyUrl\": \"http://www.taobao.com\"\r\n" + 
+				"		\"channelCode\": \"test\",\r\n" + 
+				"		\"channelName\": \"测试渠道\",\r\n" + 
+				"		\"benefitCode\": \"测试benefit\",\r\n" + 
+				"		\"productName\": \"test保险\",\r\n" + 
+				"		\"cpCode\": \"001\",\r\n" + 
+				"		\"cpName\": \"凤林保险\",\r\n" + 
+				"		\"planCode\": \"001\",\r\n" + 
+				"		\"successUrl\": \"www.flins.com.cn\",\r\n" + 
+				"		\"failUrl\": \"www.baidu.com\"\r\n" + 
 				"	}";
 		System.out.println(content);
 		content = JSON.toJSONString(JSON.parseObject(content, JSONObject.class), SerializerFeature.MapSortField);

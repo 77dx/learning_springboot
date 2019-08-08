@@ -22,6 +22,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.parser.Feature;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.flins.test2.MD5WithRSAUtil2_result;
 
 import sun.misc.BASE64Encoder;
 public class MD5WithRSAUtil1 {
@@ -151,18 +152,6 @@ public class MD5WithRSAUtil1 {
         return keyPair;
     }
 	
-	//上传文本
-	public static String type_1(String data) throws Exception {
-		String privateKey = "MIIBVAIBADANBgkqhkiG9w0BAQEFAASCAT4wggE6AgEAAkEAtd6mb1SR+VvacGr5sbEz3m5iWcqmNeJipJaGnJ5bGDErjglqLkVPXIRCbvMRUNEe/IlJdmLRT0sBzYJRDYQbcwIDAQABAkAPdFEOStBwsRZ50Q1QxS8UKqse2DKRh6A8PjJIIsi44GgYMvqXvlN+Vy5q5nYhkvB3Ndfhtn17f5qMalmRUlYRAiEA1/jXOGF4IWMF2okLEX6uRdN7J0o2iF8pcJGVr+l1gKkCIQDXk8SFzDUmZ7Ihvvns+NatHYx/U14Dnh5wdR04HgoguwIgTOAmu8r2F+xHiSJ+7htJrVE55SJlhuVYutkXjyZqzQECIQCYTWhxUqVWPbqGxuLRfbhFU/P33JE2IxbEQqljBS4IkwIgJswLDvDUHtjfuf0hLw61HIRN3ZflB7R/gj+Hw5qUspQ=";
-		String pubKey = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBALXepm9Ukflb2nBq+bGxM95uYlnKpjXiYqSWhpyeWxgxK44Jai5FT1yEQm7zEVDRHvyJSXZi0U9LAc2CUQ2EG3MCAwEAAQ==";		
-		String content = data;
-		System.out.println(content);
-		content = JSON.toJSONString(JSON.parseObject(content,JSONObject.class), SerializerFeature.MapSortField);
-		String sign = createMD5Sign(content,privateKey);
-		System.out.println("sign:"+sign);
-		System.out.println("verify sign result :" + verifyMD5Sign(content, sign, pubKey));
-		return sign;
-	}
 	
 	//图片转成base64
 	public static String base64(String image_url) {
@@ -186,26 +175,50 @@ public class MD5WithRSAUtil1 {
 	}
 	
 	//上传图片
-	public static String type_2() throws Exception {
-		String privateKey = "MIIBVgIBADANBgkqhkiG9w0BAQEFAASCAUAwggE8AgEAAkEAkqWDTe+jStTb/I23EmKVDMjyes0D4NQ3e6oBbhAoBcVkwylssj5Nil4q2YeE57sj40kH1QzENSPcx/e6SkOIRwIDAQABAkAl7OIxZLlRYA1ommnvOkmb3dhABAdtvNSAie4Gvezr2MJQfS02pR0eJyoeK5qZ95yFVe7cQdCHR3ctq6nq4hnxAiEA+9Z4C6T2joJT0GI9EWU6EDTfuXHfIQQKs4XGZI+Tf28CIQCVEfpC1MktWRXAvwJsS+ZIRlJnxkvoziqRvzZHuC4YqQIhAMwanwJ4+Sa4s6sQ44OEshFOeP/4LSm5995VjlwUDSvbAiEAiPb+oR8PRMpAUVtu54AJMsjh+BVbM6kRtd4hCl5whBkCIQCyqD+pM/caore6N73YtRHF8P4d9MW5U1QLO9juTAy2Dw==";
-		String pubKey = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJKlg03vo0rU2/yNtxJilQzI8nrNA+DUN3uqAW4QKAXFZMMpbLI+TYpeKtmHhOe7I+NJB9UMxDUj3Mf3ukpDiEcCAwEAAQ==";		
-		String content = MD5WithRSAUtil1.base64("D:/images/TR6.jpg");
-		String sign = createMD5Sign(content,privateKey);
+	public static String type_2(String prikey,String pubkey,String imageUrl) throws Exception {
+		String privatekey = prikey;
+		String pubKey = pubkey;		
+		String content = MD5WithRSAUtil1.base64(imageUrl);
+		String sign = createMD5Sign(content,privatekey);
 		System.out.println("sign:"+sign);
 		System.out.println("verify sign result :" + verifyMD5Sign(content, sign, pubKey));
 		return sign;
 	}
 	
-	
+	//上传文本
+		public static String type_1(String privatekey,String pubkey,String data) throws Exception {
+			String privateKey = privatekey;
+			String pubKey = pubkey;		
+			String content = data;
+			System.out.println(content);
+			content = JSON.toJSONString(JSON.parseObject(content,JSONObject.class), SerializerFeature.MapSortField);
+			String sign = createMD5Sign(content,privateKey);
+			System.out.println("sign:"+sign);
+			System.out.println("verify sign result :" + verifyMD5Sign(content, sign, pubKey));
+			return sign;
+		}
+		
 	
 	public static void main(String[] args) throws Exception {
-		String data = " {\r\n" + 
-				"        \"bzId\":\"dzaaa\"\r\n" + 
-				"    }";
-		String sign = MD5WithRSAUtil1.type_1(data);
-		System.out.println(sign);
-//		String base = MD5WithRSAUtil1.base64("D:/images/TR6.jpg");
-//		System.out.println(base);
+		String data = "{\r\n" + 
+				"		\"bzId\": \"\",\r\n" + 
+				"		\"guId\": \"\",\r\n" + 
+				"		\"gender\":,\r\n" + 
+				"		\"channelCode\": \"\",\r\n" + 
+				"		\"channelName\": \"\",\r\n" + 
+				"		\"benefitCode\": \"\",\r\n" + 
+				"		\"productName\": \"\",\r\n" + 
+				"		\"cpCode\": \"\",\r\n" + 
+				"		\"cpName\": \"\",\r\n" + 
+				"		\"planCode\": \"\",\r\n" + 
+				"		\"successUrl\": \"\",\r\n" + 
+				"		\"failUrl\": \"\"\r\n" + 
+				"	}";
+		String privateKey = "MIIBVAIBADANBgkqhkiG9w0BAQEFAASCAT4wggE6AgEAAkEAirqcCMveqrIyJmkpa/2IEqJLZatLNC7rD5FXUNOhQR6mvUS8aG6Up3gszb/od5imwfoYqqJoqYer8xAvOXufWQIDAQABAkB3lRvjSTkLEse/7G5UNBsTVOqBHQKaXMcqiDIn7gTWR/rT61Ev0VQySfw47H2BTTRm5ZUsOnVdEedsmsj5H1bxAiEA0d3Ub6O4SrhbrMhJpzj3B5tCGkhsfeQqf1/cCWvnPtcCIQCpOYkcKDupydoAN3OUSr7jYPfaVwvf5a/Pd1VUf0o9TwIhAMvLh5SVvsvIdTW3FVbuyWw4h5twQvKJU/92/fykLN3nAiA/+4QOxFuCn9IwIMcve29fM0ujHyRbPFHT5G+76gDc2wIgW1Pwv4Q6WkfhlZnkG9eIHRmpiBKTcMArFn24wNA50Nw=";
+		String pubKey = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIq6nAjL3qqyMiZpKWv9iBKiS2WrSzQu6w+RV1DToUEepr1EvGhulKd4LM2/6HeYpsH6GKqiaKmHq/MQLzl7n1kCAwEAAQ==";
+//		String sign = MD5WithRSAUtil1.type_1(privateKey,pubKey,data);
+
+		MD5WithRSAUtil1.type_2(privateKey,pubKey,"D:/images/TR6.jpg");
 		
 		
 		
