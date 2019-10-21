@@ -148,19 +148,184 @@ public class MD5WithRSAUtil2_result {
 	public static String select() throws Exception {
 		String privateKey = "MIIBVAIBADANBgkqhkiG9w0BAQEFAASCAT4wggE6AgEAAkEAmQREzXAYmWcIjPyeNCV6SmVLX8XcrZWonh8i5XdSiqs/Pcj4Hxrh6DXbbOJzTVAkUXWbaWKcizydm7PAsNwauQIDAQABAkA9Cy/riTm3ERyfKjRu9ziXL1vnhEbqVRckpaVFR9n9CYA21m++U4I8MyGeNv0NV6GEeATmnsx4xhdnXzD6pfZRAiEAzUCuMD9vYtpXWQHNFDJkgMJKGB8r307CkgYvZ0azlg0CIQC+2Vlr3+mHsXP1qVKJZEChgwhyGXbzhlayLsS5qsr4XQIgVNbEaTr/PnwDmM3Ox+dgdXxZhgj0aHQ0pokZ9PVba80CICKf6DtMCmBV74XYTGMkzxz+Wt/ogs43xy7YkVRmCiD5AiEAxsurHTXqhpBy/2V7qUz6RKDzVM+1Qeu/KTfb3XX+fuw=";
 		String pubKey = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJkERM1wGJlnCIz8njQlekplS1/F3K2VqJ4fIuV3UoqrPz3I+B8a4eg122zic01QJFF1m2linIs8nZuzwLDcGrkCAwEAAQ==";		
-		String content = "{\r\n" + 
-				"		\"bzId\": \"bzId001\",\r\n" + 
-				"		\"guId\": \"gu001\",\r\n" + 
-				"		\"gender\":1,\r\n" + 
-				"		\"channelCode\": \"test\",\r\n" + 
-				"		\"channelName\": \"测试渠道\",\r\n" + 
-				"		\"benefitCode\": \"测试benefit\",\r\n" + 
-				"		\"productName\": \"test保险\",\r\n" + 
-				"		\"cpCode\": \"001\",\r\n" + 
-				"		\"cpName\": \"凤林保险\",\r\n" + 
-				"		\"planCode\": \"001\",\r\n" + 
-				"		\"successUrl\": \"www.flins.com.cn\",\r\n" + 
-				"		\"failUrl\": \"www.baidu.com\"\r\n" + 
+		String content = " {\r\n" + 
+				"		\"qaQuestList\": [{\r\n" + 
+				"				\"code\": \"QL-100001\",\r\n" + 
+				"				\"question\": \"您的性别？\",\r\n" + 
+				"				\"questType\": 1,\r\n" + 
+				"				\"epId\": 100,\r\n" + 
+				"				\"qpId\": 100,\r\n" + 
+				"				\"sortNo\": 1,\r\n" + 
+				"				\"answer\": \"A\",\r\n" + 
+				"				\"inputType\": 3,\r\n" + 
+				"				\"id\": 10001\r\n" + 
+				"			},\r\n" + 
+				"			{\r\n" + 
+				"				\"code\": \"QL-100003\",\r\n" + 
+				"				\"question\": \"您的身高＿＿＿（厘米cm）\",\r\n" + 
+				"				\"questType\": 3,\r\n" + 
+				"				\"epId\": 100,\r\n" + 
+				"				\"qpId\": 100,\r\n" + 
+				"				\"sortNo\": 3,\r\n" + 
+				"				\"answer\": \"168\",\r\n" + 
+				"				\"inputType\": 1,\r\n" + 
+				"				\"id\": 10003\r\n" + 
+				"			},\r\n" + 
+				"			{\r\n" + 
+				"				\"code\": \"QL-100004\",\r\n" + 
+				"				\"question\": \"体重＿＿＿（公斤kg）\",\r\n" + 
+				"				\"questType\": 3,\r\n" + 
+				"				\"epId\": 100,\r\n" + 
+				"				\"qpId\": 100,\r\n" + 
+				"				\"sortNo\": 4,\r\n" + 
+				"				\"answer\": \"60.98\",\r\n" + 
+				"				\"inputType\": 2,\r\n" + 
+				"				\"id\": 10004\r\n" + 
+				"			},\r\n" + 
+				"			{\r\n" + 
+				"				\"code\": \"QL-100005\",\r\n" + 
+				"				\"question\": \"您生活的城市？\",\r\n" + 
+				"				\"questType\": 1,\r\n" + 
+				"				\"epId\": 100,\r\n" + 
+				"				\"qpId\": 100,\r\n" + 
+				"				\"sortNo\": 5,\r\n" + 
+				"				\"answer\": \"C\",\r\n" + 
+				"				\"inputType\": 3,\r\n" + 
+				"				\"id\": 10005\r\n" + 
+				"			},\r\n" + 
+				"			{\r\n" + 
+				"				\"code\": \"QL-100006\",\r\n" + 
+				"				\"question\": \"您的文化程度？\",\r\n" + 
+				"				\"questType\": 1,\r\n" + 
+				"				\"epId\": 100,\r\n" + 
+				"				\"qpId\": 100,\r\n" + 
+				"				\"sortNo\": 6,\r\n" + 
+				"				\"answer\": \"C\",\r\n" + 
+				"				\"inputType\": 3,\r\n" + 
+				"				\"id\": 10006\r\n" + 
+				"			},\r\n" + 
+				"			{\r\n" + 
+				"				\"code\": \"QL-100007\",\r\n" + 
+				"				\"question\": \"您以前有得过甲状腺疾病吗？\",\r\n" + 
+				"				\"questType\": 2,\r\n" + 
+				"				\"epId\": 100,\r\n" + 
+				"				\"qpId\": 100,\r\n" + 
+				"				\"sortNo\": 7,\r\n" + 
+				"				\"answer\": \"B\",\r\n" + 
+				"				\"inputType\": 3,\r\n" + 
+				"				\"id\": 10007\r\n" + 
+				"			},\r\n" + 
+				"			{\r\n" + 
+				"				\"code\": \"QL-100008\",\r\n" + 
+				"				\"question\": \"您的亲属中有没有患甲状腺癌的？\",\r\n" + 
+				"				\"questType\": 2,\r\n" + 
+				"				\"epId\": 100,\r\n" + 
+				"				\"qpId\": 100,\r\n" + 
+				"				\"sortNo\": 8,\r\n" + 
+				"				\"answer\": \"B\",\r\n" + 
+				"				\"inputType\": 3,\r\n" + 
+				"				\"id\": 10008\r\n" + 
+				"			},\r\n" + 
+				"			{\r\n" + 
+				"				\"code\": \"QL-100009\",\r\n" + 
+				"				\"question\": \"您是否经常（每周≥3次）吃以下食物？\",\r\n" + 
+				"				\"questType\": 2,\r\n" + 
+				"				\"epId\": 100,\r\n" + 
+				"				\"qpId\": 100,\r\n" + 
+				"				\"sortNo\": 9,\r\n" + 
+				"				\"answer\": \"A,B,C\",\r\n" + 
+				"				\"inputType\": 3,\r\n" + 
+				"				\"id\": 10009\r\n" + 
+				"			},\r\n" + 
+				"			{\r\n" + 
+				"				\"code\": \"QL-100010\",\r\n" + 
+				"				\"question\": \"您是否有糖尿病或者血糖异常？\",\r\n" + 
+				"				\"questType\": 1,\r\n" + 
+				"				\"epId\": 100,\r\n" + 
+				"				\"qpId\": 100,\r\n" + 
+				"				\"sortNo\": 10,\r\n" + 
+				"				\"answer\": \"C\",\r\n" + 
+				"				\"inputType\": 3,\r\n" + 
+				"				\"id\": 10010\r\n" + 
+				"			},\r\n" + 
+				"			{\r\n" + 
+				"				\"code\": \"QL-100011\",\r\n" + 
+				"				\"question\": \"您是否有血脂高（甘油三脂、胆固醇）？\",\r\n" + 
+				"				\"questType\": 1,\r\n" + 
+				"				\"epId\": 100,\r\n" + 
+				"				\"qpId\": 100,\r\n" + 
+				"				\"sortNo\": 11,\r\n" + 
+				"				\"answer\": \"B\",\r\n" + 
+				"				\"inputType\": 3,\r\n" + 
+				"				\"id\": 10011\r\n" + 
+				"			},\r\n" + 
+				"			{\r\n" + 
+				"				\"code\": \"QL-100012\",\r\n" + 
+				"				\"question\": \"您曾经有没有接受过头颈部CT检查？\",\r\n" + 
+				"				\"questType\": 1,\r\n" + 
+				"				\"epId\": 100,\r\n" + 
+				"				\"qpId\": 100,\r\n" + 
+				"				\"sortNo\": 12,\r\n" + 
+				"				\"answer\": \"A\",\r\n" + 
+				"				\"inputType\": 3,\r\n" + 
+				"				\"id\": 10012\r\n" + 
+				"			},\r\n" + 
+				"			{\r\n" + 
+				"				\"code\": \"QL-100013\",\r\n" + 
+				"				\"question\": \"您是否常常有下列情绪？\",\r\n" + 
+				"				\"questType\": 2,\r\n" + 
+				"				\"epId\": 100,\r\n" + 
+				"				\"qpId\": 100,\r\n" + 
+				"				\"sortNo\": 13,\r\n" + 
+				"				\"answer\": \"E\",\r\n" + 
+				"				\"inputType\": 3,\r\n" + 
+				"				\"id\": 10013\r\n" + 
+				"			},\r\n" + 
+				"			{\r\n" + 
+				"				\"code\": \"QL-100014\",\r\n" + 
+				"				\"question\": \"在平常的生活、工作中您有没有感觉到压力大、焦虑？\",\r\n" + 
+				"				\"questType\": 1,\r\n" + 
+				"				\"epId\": 100,\r\n" + 
+				"				\"qpId\": 100,\r\n" + 
+				"				\"sortNo\": 14,\r\n" + 
+				"				\"answer\": \"B\",\r\n" + 
+				"				\"inputType\": 3,\r\n" + 
+				"				\"id\": 10014\r\n" + 
+				"			},\r\n" + 
+				"			{\r\n" + 
+				"				\"code\": \"QL-100015\",\r\n" + 
+				"				\"question\": \"您与他人的相处的时候，通常是什么样的状态？\",\r\n" + 
+				"				\"questType\": 1,\r\n" + 
+				"				\"epId\": 100,\r\n" + 
+				"				\"qpId\": 100,\r\n" + 
+				"				\"sortNo\": 15,\r\n" + 
+				"				\"answer\": \"B\",\r\n" + 
+				"				\"inputType\": 3,\r\n" + 
+				"				\"id\": 10015\r\n" + 
+				"			},\r\n" + 
+				"			{\r\n" + 
+				"				\"code\": \"QL-100016\",\r\n" + 
+				"				\"question\": \"您是否曾经怀孕次数达3次以上？\",\r\n" + 
+				"				\"questType\": 1,\r\n" + 
+				"				\"epId\": 100,\r\n" + 
+				"				\"qpId\": 100,\r\n" + 
+				"				\"sortNo\": 16,\r\n" + 
+				"				\"answer\": \"A\",\r\n" + 
+				"				\"inputType\": 3,\r\n" + 
+				"				\"id\": 10016\r\n" + 
+				"			},\r\n" + 
+				"			{\r\n" + 
+				"				\"code\": \"QL-100018\",\r\n" + 
+				"				\"question\": \"您是否患有乳腺增生？\",\r\n" + 
+				"				\"questType\": 1,\r\n" + 
+				"				\"epId\": 100,\r\n" + 
+				"				\"qpId\": 100,\r\n" + 
+				"				\"sortNo\": 18,\r\n" + 
+				"				\"answer\": \"A\",\r\n" + 
+				"				\"inputType\": 3,\r\n" + 
+				"				\"id\": 10018\r\n" + 
+				"			}\r\n" + 
+				"		]\r\n" + 
 				"	}";
 		System.out.println(content);
 		content = JSON.toJSONString(JSON.parseObject(content, JSONObject.class), SerializerFeature.MapSortField);

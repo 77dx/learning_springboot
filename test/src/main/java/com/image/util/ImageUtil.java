@@ -39,26 +39,11 @@ public class ImageUtil {
 	}
 	
 	
-	
-	
-	//把目标路径的文件名称写进文件里
-	public static void image_name(String imageName,String imageUrl) {
-		try {
-			File f = new File(imageName);
-			Writer out = new FileWriter(f);
-			ArrayList<String> list = ImageUtil.getImageUrl(imageUrl);
-			for (String string : list) {
-				out.write(string+"\r\n");
-			}
-			System.out.println("写进去了");
-			out.close();
-		}catch (Exception e) {
-			System.out.println("异常了");
-		}
-	}
+
 	
 	public static void main(String[] args) {
-		String base = ImageUtil.base64("D:/images/TR6.jpg");
-		System.out.println(base);
+//		String base = ImageUtil.base64("D:/images/TR6.jpg");
+//		System.out.println(base);
+		
 	}
 }

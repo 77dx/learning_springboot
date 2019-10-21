@@ -1,4 +1,4 @@
-package com.flins.test;
+package com.flins.test3;
 import java.io.FileInputStream;
 import sun.misc.BASE64Encoder;
 import java.io.IOException;
@@ -11,19 +11,12 @@ import java.security.PublicKey;
 import java.security.Signature;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
-
 import javax.crypto.Cipher;
-
-
 import org.apache.commons.codec.binary.Base64;
-
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.parser.Feature;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.flins.test2.MD5WithRSAUtil2_result;
-
 import sun.misc.BASE64Encoder;
 public class MD5WithRSAUtil1 {
 	//private static final Logger logger = LoggerFactory.getLogger(MD5withRSA.class);
@@ -200,27 +193,24 @@ public class MD5WithRSAUtil1 {
 		
 	
 	public static void main(String[] args) throws Exception {
-		int a = 1;
+		String bzId = All_util.generateString(10);
 		String data = "{\r\n" + 
-				"        \"bzId\":\"EU4kNz5e4I\",\r\n" + 
-				"        \"serialNumber\":\"PFC20190829000009\",\r\n" + 
-				"        \"benefitCode\":\"benefitcode004\",\r\n" + 
-				"        \"cpCode\":\"cp003\",\r\n" + 
-				"        \"insuranceNo\":\"Insurance001\",\r\n" + 
-				"        \"premium\":\"2000\",\r\n" + 
-				"        \"cpName\":\"亚太再保\",\r\n" + 
-				"        \"productName\":\"重疾险\",\r\n" + 
-				"        \"insuranceStatus\":\"正常\" ,\r\n" + 
-				"        \"cname\":\"dd\",\r\n" + 
-				"        \"idNumber\":\"ss\",\r\n" + 
-				"        \"insuranceTime\":\"rr\",\r\n" + 
-				"        \"isCancel\":\"hgh\",\r\n" + 
-				"        \"cancelTime\":\"ukuk\"\r\n" + 
-				"      }";
-		String privateKey = "MIIBUwIBADANBgkqhkiG9w0BAQEFAASCAT0wggE5AgEAAkEA2qch+AlW8LNh2yEZRVb8M3mvvuejAPoPbIQ5EzHGGtgquQSrbcKvjKSxBUAKCFCUM4IK+8/s4TMNUkbmb4xgLwIDAQABAkAX6wpzOIpTIDxHHTLHfAFwnBIWfv48wB3pz/jyWZKDIwiecfQ4XjvGHGwGM0mp4f4aHiymDRg8fRlQz+0WliGhAiEA7JwX35P1BbDnbQLpmgwr/ISgOrNT/dn2446fqb9y9l8CIQDsklEUeNYfHYtpH+TQtyEOzjB0Lkhb9N5TedVghY/IMQIgEI+AUEK/1I0kNYoNpZ2SepMhz9n7V/oogJbb7/qZZksCIGP/PRKAOVIRtPoMpzWqEuklMsoJPkDQcqGqYA1ap3ohAiAEhY+63Ea6y6eVuN+cXuRY6vyYTK0NCInWNK32ph9W+A==";
-		String pubKey = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBANqnIfgJVvCzYdshGUVW/DN5r77nowD6D2yEORMxxhrYKrkEq23Cr4yksQVACghQlDOCCvvP7OEzDVJG5m+MYC8CAwEAAQ==";
+				"		\"bzId\": \""+bzId+"\",\r\n" + 
+				"		\"guId\": \"gu001\",\r\n" + 
+				"		\"gender\":1,\r\n" + 
+				"		\"channelCode\": \"test\",\r\n" + 
+				"		\"channelName\": \"测试渠道\",\r\n" + 
+				"		\"benefitCode\": \"测试benefit\",\r\n" + 
+				"		\"productName\": \"test保险\",\r\n" + 
+				"		\"cpCode\": \"001\",\r\n" + 
+				"		\"cpName\": \"凤林保险\",\r\n" + 
+				"		\"planCode\": \"001\",\r\n" + 
+				"		\"successUrl\": \"https://www.flins.com.cn\",\r\n" + 
+				"		\"failUrl\": \"https://www.baidu.com\"\r\n" + 
+				"	}";
+		String privateKey = "MIIBVAIBADANBgkqhkiG9w0BAQEFAASCAT4wggE6AgEAAkEAirqcCMveqrIyJmkpa/2IEqJLZatLNC7rD5FXUNOhQR6mvUS8aG6Up3gszb/od5imwfoYqqJoqYer8xAvOXufWQIDAQABAkB3lRvjSTkLEse/7G5UNBsTVOqBHQKaXMcqiDIn7gTWR/rT61Ev0VQySfw47H2BTTRm5ZUsOnVdEedsmsj5H1bxAiEA0d3Ub6O4SrhbrMhJpzj3B5tCGkhsfeQqf1/cCWvnPtcCIQCpOYkcKDupydoAN3OUSr7jYPfaVwvf5a/Pd1VUf0o9TwIhAMvLh5SVvsvIdTW3FVbuyWw4h5twQvKJU/92/fykLN3nAiA/+4QOxFuCn9IwIMcve29fM0ujHyRbPFHT5G+76gDc2wIgW1Pwv4Q6WkfhlZnkG9eIHRmpiBKTcMArFn24wNA50Nw=";
+		String pubKey = "MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIq6nAjL3qqyMiZpKWv9iBKiS2WrSzQu6w+RV1DToUEepr1EvGhulKd4LM2/6HeYpsH6GKqiaKmHq/MQLzl7n1kCAwEAAQ==";
 		String sign = MD5WithRSAUtil1.type_1(privateKey,pubKey,data);
-
 //		MD5WithRSAUtil1.type_2(privateKey,pubKey,"D:/images/TR6.jpg");
 		
 		
